@@ -1,0 +1,192 @@
+/* ヘッダー全体 */
+header {
+  position: fixed;        /* 常に画面上部に固定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #CCFFFF;
+  padding: 20px 60px;
+  display: flex;
+  color: black;  
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;          /* ヒーローより前面 */
+}
+
+/* 会社名 */
+.site-title {
+  display: block;      /* ブロック要素にする */
+  margin: 0;
+  font-size: 24px;
+  color: black;
+  text-align: left;
+}
+
+/* ボタン群 */
+.nav-buttons {
+  display: flex;
+  gap: 8px;  /* ボタン間隔 */
+  margin-left: -10px;
+  transform: translateX(-100px)
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 画面全体の高さ */
+  margin: 0;
+}
+
+main {
+  flex: 1; /* ヘッダーとフッターの間を自動で広げる */
+  color: black;
+}
+
+/* 下線 */
+.text-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s;
+}
+
+/* ホバー時に下線を伸ばす */
+.text-button:hover::after {
+  width: 100%;
+}
+.hero {
+  background-size: cover;
+  color: white;
+  padding: 250px 40px;    /* ヒーローの上下余白 */
+  margin-top: 80px;       /* ヘッダーの高さ分スペース確保 */
+  text-align: center;
+}
+
+/* ハンバーガーは初期非表示 */
+.hamburger {
+  display: none;
+}
+
+/* PC用ナビ */
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.text-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s;
+}
+
+.text-button:hover::after {
+  width: 100%;
+}
+
+/* PC用ナビ */
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* 文字ボタン共通 */
+.text-button {
+  position: relative;
+  background-color: transparent;
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+footer {
+  background-color: #87CEEB; /* 濃いめの水色 */
+  color: white;              /* 文字色 */
+  padding: 41px;             /* 内側の余白 */
+  text-align: left;        /* 文字を中央に */
+  font-size: 14px;           /* 文字サイズ */
+  margin-top: 500px;
+}
+
+.text-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s;
+}
+
+.text-button:hover::after {
+  width: 100%;
+}
+
+/* ハンバーガー（初期は非表示） */
+.hamburger {
+  display: none;
+  top: 50%;
+  right: 15px;
+}
+
+/* スマホ用（画面幅800px以下） */
+@media (max-width: 800px) {
+  header {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .nav-buttons {
+    display: none;           /* 最初は隠す */
+    flex-direction: column;
+    gap: 10px;
+    background-color: #white;
+    position: absolute;
+    top: 35px;
+    right: -80px;
+    padding: 10px;
+    border-radius: 3px;
+    -webkit-text-stroke: 1px black;
+    border: 2px solid black;
+  }
+
+  /* 開いたとき */
+  .nav-buttons.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+    order: 1;
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    flex-direction: column;
+    gap: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1010;
+    margin-left: 
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: black; /* ←白だと背景に消えるので黒に変更 */
+  }
+}
